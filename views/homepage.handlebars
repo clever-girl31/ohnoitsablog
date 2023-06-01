@@ -1,4 +1,8 @@
-{{ if (blog) }}
-{{!-- loop display of most recent posts --}}
-{{ /if }}
+{{#each blogs}}
+<div class="blogContainer">
+  <h2 id="blogTitle">{{this.title}}</h2>
+  <p id="blogAuthor">By {{this.author}}</p>
+  <p id="blogText">{{this.text}}</p>
+</div>
+{{/each}}
 

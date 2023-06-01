@@ -10,7 +10,8 @@
     "sequelize": "^6.31.1"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "seed": "node seeds/seed.js"
   },
   "name": "ohnoitsablog",
   "description": "",

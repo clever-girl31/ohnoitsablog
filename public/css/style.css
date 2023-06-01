@@ -1,0 +1,45 @@
+*{
+  margin: 0
+}
+
+header{
+  display: flex;
+  align-items: center;
+  background-color: rgb(68, 68, 68);
+  height: 100px;
+  color: rgb(214, 214, 214);
+  text-shadow: rgb(164, 73, 73) 1px 1px;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 5px
+}
+
+nav {
+  margin: 5px
+}
+
+.blogContainer {
+  border: solid black 1px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#blogTitle {
+  margin: 5px;
+}
+
+#blogAuthor {
+
+}
+
+#blogText {
+  margin: 15px
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
