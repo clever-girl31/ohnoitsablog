@@ -11,17 +11,20 @@
   <header>
     <h1>Blog This!</h1>
     <nav>
-      <button id="homeBtn">Home</button>
-      <button id="dashboardBtn">Dashboard</button>
+      <a href="/"><button id="homeBtn">Home</button></a>
       {{#if loggedIn}}
+      <a href="/dashboard"><button id="dashboardBtn">Dashboard</button></a>
       <button id="logOutBtn">Log Out</button>
       {{else}}
-      <button id="logInBtn">Log In</button>
+      <a href="/login"><button id="dashboardBtn">Dashboard</button></a>
+      <a href="/login"><button id="logInBtn">Log In</button></a>
       {{/if}}
 
     </nav>
   </header>
   {{{ body }}}
-<script src="/js/script.js"></script>
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </body>
 </html>
