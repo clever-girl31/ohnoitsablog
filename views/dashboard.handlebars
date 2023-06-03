@@ -1,3 +1,10 @@
 <div class="container">
-  <p>Welcome back, <b>{{username}}</b></p>
+  <h1>Welcome back, {{username}}</h1>
+  <p>Your Posts:</p>
+  <br>
+  {{#each blogs}}
+  <li>{{title}}</li>
+  {{/each}}
+
 </div>
+<script src="js/dashboard.js"></script>

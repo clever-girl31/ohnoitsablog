@@ -1,20 +1,23 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
   try {
-    const { title, text } = req.body;
-    const { user_id } = req.session;
+    
+    // const user = await User.findByPk(user_id)
 
-    console.log('req.session:', req.session);
-    console.log('req.session.user_id:', req.session.user_id);
-
-    const newBlog = await Blog.create({
-      title,
-      text,
-      user_id
-    });
+    const { title, author, text, user_id } = req.body;
+    
+    const newBlog = await Blog.create(
+      {
+        title,
+        author,
+        text,
+        user_id,
+        createdAt: new Date()
+      },
+    );
 
     res.status(201).json(newBlog);
   } catch (err) {

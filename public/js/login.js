@@ -6,7 +6,7 @@ const signupFormHandler = async (event) => {
   const vfyPassword = document.querySelector('#password2').value.trim();
 
   if (password !== vfyPassword) {
-    console.log('Passwords Must Match!')
+    window.alert('Passwords Must Match!')
     return
   }
   if (username && password && vfyPassword) {

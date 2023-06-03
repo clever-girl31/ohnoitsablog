@@ -34,10 +34,11 @@ Blog.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blogs'
+    modelName: 'Blog',
+    tableName: 'blogs'
   }
 )
 

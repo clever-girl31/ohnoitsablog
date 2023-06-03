@@ -1,0 +1,12 @@
+<div class="blogContainer">
+  <h2 id="blogTitle">{{blog.dataValues.title}}</h2>
+  <p id="blogAuthor">@{{blog.dataValues.author}}</p>
+  {{formatDate blog.dataValues.createdAt}}
+  <p id="blogText">{{blog.dataValues.text}}</p>
+</div>
+{{#if loggedIn}}
+<div class="addComment">
+  <p>Commenting as @{{userData.dataValues.username}}</p>
+  <textarea type="text" style="width: 200px; height: 80px; align-items: flex-start" placeholder="What do you think?" maxlength="50"></textarea>
+</div>
+{{/if}}
