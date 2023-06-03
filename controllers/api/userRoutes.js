@@ -19,8 +19,18 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    console.log('_________________________before timeout_____________')
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error('Request timed out'));
+      }, 3000)
+    });
 
+    const userDataPromise = User.findOne({ where: { username : req.body.username} });
+
+    const raceResult = Promise.race([timeoutPromise, userDataPromise])
+    const userData = await userDataPromise
+    console.log('________________after timeout______________' + 'userData__' + userData + 'userDataPromise____' + userDataPromise)
     if (!userData) {
       res
         .status(400)
@@ -37,12 +47,11 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+    req.session.save()
 
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
+    res.status(200).json({ message: 'Login successful' });
 
   } catch (err) {
     res.status(400).json(err);

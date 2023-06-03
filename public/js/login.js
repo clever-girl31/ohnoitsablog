@@ -17,6 +17,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log('response ok')
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
@@ -33,8 +34,9 @@ const loginFormHandler = async (event) => {
   // Collect values from the login form
   const username = document.querySelector('#username').value.trim();
   const password = document.querySelector('#password').value.trim();
-
+  console.log('line 37')
   if (username && password) {
+    console.log('line 39')
     // Send a POST request to the API endpoint
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -45,10 +47,13 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
+      console.log('ok')
     } else {
       alert(response.statusText);
+      console.log('not ok')
     }
   }
+  console.log('is this thing on?')
 };
 
 const loginSubmit = document.getElementById('loginSubmit')
