@@ -10,3 +10,10 @@
   <textarea type="text" style="width: 200px; height: 80px; align-items: flex-start" placeholder="What do you think?" maxlength="50"></textarea>
 </div>
 {{/if}}
+{{#each comments}}
+<div class="existingComments">
+  @{{this.dataValues.author}}
+  {{this.dataValues.content}}
+  {{formatDate this.dataValues.createdAt}}
+</div>
+{{/each}}

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models')
+const { Blog, User, Comment } = require('../models')
 
 // renders homepage onto main template
 router.get('/', async (req, res) => {
@@ -80,21 +80,32 @@ router.get('/blogs/:id', async (req, res) => {
     }
 
     let loggedIn = false;
+    
+    const comments = await Comment.findAll({
+      where: {
+        blog_id: blogId
+      }
+    });
+    console.log('comments____________', comments)
 
     if (req.session.logged_in){
       loggedIn = true;
+      
       const userID = req.session.user_id;
       console.log(userID)
       const userData = await User.findByPk(userID, {
         attributes: { exclude: ['password'] },
       });
       console.log('userData____________________________', userData.username)
-      res.render('blog', { blog, userData, loggedIn })
+      
+
+      res.render('blog', { blog, userData, loggedIn, comments })
     } else {
-      res.render('blog', { blog, loggedIn })
+      res.render('blog', { blog, loggedIn, comments })
     }
   } catch (err) {
     res.status(500).json(err);
+    console.error(err)
   }
 });
 
