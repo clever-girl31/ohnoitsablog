@@ -1,10 +1,15 @@
 <div class="container">
-  <h1>Welcome back, {{username}}</h1>
+  <h1 id="authorIDspot">Welcome back, @{{username}}</h1>
   <p>Your Posts:</p>
   <br>
   {{#each blogs}}
   <li>{{title}}</li>
   {{/each}}
-
+</div>
+<div class="container" id="createBlogPost">
+  <h2>Create New Post</h2>
+  <input id="newBlogTitle" placeholder="Title">
+  <textarea id="newBlogText" placeholder="Tell them how you feel"></textarea>
+  <button id="blogSubmit">Submit</button>
 </div>
 <script src="js/dashboard.js"></script>
