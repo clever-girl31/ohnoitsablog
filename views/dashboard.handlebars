@@ -3,10 +3,14 @@
   <p>Your Posts:</p>
   <br>
   {{#each blogs}}
-  <li>{{title}}</li>
+  <li>
+    <a href="/blogs/{{id}}">{{title}}</a>
+    <button name="{{id}}" class="deletePostButton">Delete</button>
+  </li>
   {{/each}}
 </div>
-<div class="container" id="createBlogPost">
+<button id="addPost">Create New Entry</button>
+<div class="container" id="createBlogPost" style="display: none">
   <h2>Create New Post</h2>
   <input id="newBlogTitle" placeholder="Title">
   <textarea id="newBlogText" placeholder="Tell them how you feel"></textarea>

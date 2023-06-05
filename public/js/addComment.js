@@ -26,6 +26,7 @@ const submitCommentHandler = async (event) => {
 
     if (response.ok) {
       console.log('response ok')
+      location.reload()
     } else {
       console.log('no content')
     }

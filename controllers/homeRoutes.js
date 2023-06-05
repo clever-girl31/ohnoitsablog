@@ -11,7 +11,10 @@ router.get('/', async (req, res) => {
     console.log('user_id____', req.session.user_id)
     console.log('user______', user)
 
-    const blogs = await Blog.findAll({ raw: true });
+    const rawBlogs = await Blog.findAll({ raw: true });
+
+    // sort newest to oldest
+    blogs = rawBlogs.slice().reverse();
 
     const loggedIn = req.session.logged_in;
     res.render('homepage', { blogs, loggedIn });

@@ -1,5 +1,48 @@
 console.log('dashboard.js is linked')
 
+// delete post
+const deletePostButton = document.querySelectorAll('.deletePostButton')
+
+const deletePost = async (event) => {
+  console.log('click')
+  const id = event.target.getAttribute('name')
+  console.log(id)
+  const response = await fetch(`/api/blogs/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    location.reload();
+  } else {
+    alert('did not delete');
+  }
+};
+function click() {
+  console.log('click')
+}
+
+deletePostButton.forEach((button) => {
+  button.addEventListener('click', deletePost);
+});
+
+
+// toggle visibility of container where user can create post
+const postEntryToggle = document.getElementById('addPost')
+const createBlogPost = document.getElementById('createBlogPost')
+
+function toggler () {
+  if (createBlogPost.style.display === 'none') {
+    createBlogPost.style.display = 'flex';
+    postEntryToggle.innerHTML = 'Hide'
+  } else if (createBlogPost.style.display === 'flex'){
+    createBlogPost.style.display = 'none'
+    postEntryToggle.innerHTML = 'Create New Entry'
+  }
+}
+
+postEntryToggle.addEventListener('click', toggler)
+
+// create new blog post
 const newBlogTitle = document.getElementById('newBlogTitle')
 const newBlogText = document.getElementById('newBlogText')
 const blogSubmit = document .getElementById('blogSubmit')
@@ -20,10 +63,6 @@ const submitBlogHandler = async (event) => {
     })
 
     if (response.ok) {
-      window.alert('Blog Posted!')
-      // setTimeout(() => {
-      //   location.reload();
-      // }, 3000);
       location.reload()
 
     } else {
@@ -33,3 +72,7 @@ const submitBlogHandler = async (event) => {
 }
 
 blogSubmit.addEventListener('click', submitBlogHandler)
+
+
+
+
