@@ -4,6 +4,7 @@ const { Blog, User, Comment } = require('../models')
 // renders homepage onto main template
 router.get('/', async (req, res) => {
   try {
+    console.log(req.session)
     const { user_id } = req.session;
     const user = await User.findByPk(user_id);
     
@@ -37,12 +38,6 @@ router.get('/dashboard', async (req, res) => {
     });
 
     console.log('userData:_____', userData);
-
-    // if (!userData) {
-    //   console.log('User data not found.');
-    //   res.status(404).json({ message: 'User not found even though I know you are looking for user.',userID});
-    //   return;
-    // };
 
     const user = userData.get({ plain: true });
     console.log('user________', user)

@@ -7,12 +7,12 @@ router.post('/', async (req, res) => {
     
     // const user = await User.findByPk(user_id)
 
-    const { content, author, blog_id } = req.body;
+    const { author, content, blog_id } = req.body;
     
     const newComment = await Comment.create(
       {
-        content,
         author,
+        content,
         blog_id,
         createdAt: new Date()
       },

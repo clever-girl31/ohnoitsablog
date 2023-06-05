@@ -6,9 +6,13 @@
 </div>
 {{#if loggedIn}}
 <div class="addComment">
-  <p>Commenting as @{{userData.dataValues.username}}</p>
-  <textarea type="text" style="width: 200px; height: 80px; align-items: flex-start" placeholder="What do you think?" maxlength="50"></textarea>
+  <p id="commentingAs">Commenting as @{{userData.dataValues.username}}</p>
+  <textarea id="commentTextArea" type="text" style="width: 200px; height: 80px; align-items: flex-start" placeholder="What do you think?" maxlength="50"></textarea>
+  <button id="submitComment">Submit</button>
 </div>
+  <script src="/js/addComment.js"></script>
+{{else}}
+<a href="/login">Login to add a Comment</a>
 {{/if}}
 {{#each comments}}
 <div class="existingComments">
