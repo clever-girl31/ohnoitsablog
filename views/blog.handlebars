@@ -15,7 +15,7 @@
 <a href="/login">Login to add a Comment</a>
 {{/if}}
 {{#each comments}}
-<div class="existingComments">
+<div class="existingComments, container">
   @{{this.dataValues.author}}
   {{this.dataValues.content}}
   {{formatDate this.dataValues.createdAt}}

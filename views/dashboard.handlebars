@@ -5,10 +5,20 @@
   {{#each blogs}}
   <li>
     <a href="/blogs/{{id}}">{{title}}</a>
+    <button name="{{id}}" class="editPostButton">Edit</button>
     <button name="{{id}}" class="deletePostButton">Delete</button>
   </li>
   {{/each}}
 </div>
+
+<div class="container" id="editBlogPost" style="display: none">
+  <h2>Edit Post</h2>
+  <input id="editBlogTitle">
+  <textarea id="editBlogText"></textarea>
+  <button class="submitEdit">Submit</button>
+  <button id="cancelEdit">Cancel</button>
+</div>
+
 <button id="addPost">Create New Entry</button>
 <div class="container" id="createBlogPost" style="display: none">
   <h2>Create New Post</h2>

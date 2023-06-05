@@ -1,6 +1,15 @@
 const router = require('express').Router();
 const { Blog, User } = require('../../models');
 
+router.get('/:id', async (req, res) => {
+  try {
+    const blog = await Blog.findByPk(req.params.id);
+    res.json(blog); // Send the blog data as JSON
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     const userID = req.session.user_id
@@ -46,6 +55,33 @@ router.delete('/:id', async (req, res) => {
     res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+
+router.put('/:id', async (req, res) => {
+  try {
+    const { id, title, text } = req.body;
+
+    const updatedBlog = await Blog.update(
+      {
+        title,
+        text,
+        updatedAt: new Date()
+      },
+      {
+        where: { id: req.params.id }
+      }
+    );
+
+    if (updatedBlog[0] === 0) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    res.status(200).json({ message: 'Blog updated successfully' });
+  } catch (err) {
+    res.status(400).json(err);
+    console.error(err);
   }
 });
 
