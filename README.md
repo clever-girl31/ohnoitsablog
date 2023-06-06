@@ -13,3 +13,5 @@ Blog This! is a simple CMS blogging website where users can create and view blog
 - The Login page contains an object which allows the user to create an account. If none of the fields are left blank, and the two password fields match, an account will be created and the new user will be rerouted to their new, empty dashboard. The user's session expires one hour after logging in.
 
 # Application
+[Deployed Application](https://peaceful-cove-90447.herokuapp.com/)
+![Screen Cap of Deployed App](./assets/screenCapture.png)
