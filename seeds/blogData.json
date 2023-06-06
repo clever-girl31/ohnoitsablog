@@ -1,14 +1,32 @@
 [
   {
     "title": "Pineapple On Pizza?",
-    "author": "coolGreatNeat11",
+    "author": "WhisperingWillow",
     "text": "Idk man I just like pizza!",
-    "user_id": 1
+    "user_id": 4
   },
   {
     "title": "WOW",
-    "author": "smartandAwesome25",
+    "author": "LunarEcho",
     "text": "The weather is pretty good rn ngl",
-    "user_id": 2
+    "user_id": 3
+  },
+  {
+    "title": "New Horizons",
+    "author": "MysticScribe",
+    "text": "I am learning how to make bread.",
+    "user_id": 1
+  },
+  {
+    "title": "Oh no,",
+    "author": "MysticScribe",
+    "text": "I burned the bread.",
+    "user_id": 1
+  },
+  {
+    "title": "Going to the beach later",
+    "author": "PixelWhiz",
+    "text": "Who can give me a ride?",
+    "user_id": 4
   }
 ]

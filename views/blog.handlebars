@@ -15,9 +15,10 @@
 <a href="/login">Login to add a Comment</a>
 {{/if}}
 {{#each comments}}
-<div class="existingComments, container">
-  @{{this.dataValues.author}}
-  {{this.dataValues.content}}
-  {{formatDate this.dataValues.createdAt}}
+<div class="existingComments">
+  <p style="font-weight:bold">@{{this.dataValues.author}}</p>
+  <p>{{formatDate this.dataValues.createdAt}}</p>
+  <p style="margin-top: 15px">{{this.dataValues.content}}</p>
+  
 </div>
 {{/each}}
