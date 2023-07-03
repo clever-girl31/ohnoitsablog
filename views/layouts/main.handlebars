@@ -5,21 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog This!</title>
-  <link rel="stylesheet" href="/css/style.css">
+  {{!-- <link rel="stylesheet" href="/css/style.css"> --}}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body>
-  <header>
-    <h1>Blog This!</h1>
-    <nav>
-      <a href="/"><button id="homeBtn">Home</button></a>
-      {{#if loggedIn}}
-      <a href="/dashboard"><button id="dashboardBtn">Dashboard</button></a>
-      <button id="logOutBtn">Log Out</button>
-      {{else}}
-      <a href="/login"><button id="dashboardBtn">Dashboard</button></a>
-      <a href="/login"><button id="logInBtn">Log In</button></a>
-      {{/if}}
-
+<body class="container text-bg-dark">
+  <header class="p-3">
+    <nav class="navbar">
+      <h1 class="col-8">bloogr</h1>
+      <div class="col-4">
+        <a href="/"><button id="homeBtn" type="button" class="btn btn-primary">Home</button></a>
+        {{#if loggedIn}}
+        <a href="/dashboard"><button id="dashboardBtn">Dashboard</button></a>
+        <button id="logOutBtn" type="button" class="btn btn-primary">Log Out</button>
+        {{else}}
+        <a href="/login"><button id="dashboardBtn" type="button" class="btn btn-primary">Dashboard</button></a>
+        <a href="/login"><button id="logInBtn" type="button" class="btn btn-primary">Log In</button></a>
+        {{/if}}
+      </div>
     </nav>
   </header>
   {{{ body }}}

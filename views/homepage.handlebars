@@ -1,11 +1,13 @@
 {{#each blogs}}
-<div class="blogContainer">
+<div class="my-3">
+<div class="border border-3 rounded border-primary p-3">
   <h2 id="blogTitle">
     <a href="/blogs/{{this.id}}">{{this.title}}</a>
   </h2>
   <p id="blogAuthor">@{{this.author}}</p>
-  {{formatDate this.createdAt}}
+  <p>{{formatDate this.createdAt}}</p>
   <p id="blogText">{{truncate this.text 200}}</p>
+</div>
 </div>
 {{/each}}
 
